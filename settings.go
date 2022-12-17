@@ -6,7 +6,7 @@ var cols = 150
 var pixelHeight = 5
 var pixelWidth = 5
 var span = 4
-var power = Real(1)
+var power = Real(3)
 var randomHands = 5
 
 // var hands = 10

@@ -34,10 +34,19 @@ func rectangularHand(rowSpan, colSpan int) Hand {
 	return hand
 }
 
-func randomRectangularHands(n int) []Hand {
-	var hands = make([]Hand, n)
-	for i := range hands {
-		hands[i] = rectangularHand(rand.Int()%span+1, rand.Int()%span+1)
+func randomRectangularHands(n int) (hands []Hand) {
+	for i := 0; i < n; i++ {
+		hands = append(hands, randomRectangularHand())
 	}
-	return hands
+	return
+}
+
+func randomRectangularHand() Hand {
+	return rectangularHand(rand.Int()%span+1, rand.Int()%span+1)
+}
+
+func changeHand(i int) {
+	if len(hands) > i {
+		hands[i] = randomRectangularHand()
+	}
 }

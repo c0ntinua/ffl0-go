@@ -1,25 +1,25 @@
 package main
 
-func (field Field) at(where Where) Real {
-	if where[0] < 0 {
-		where[0] += rows
-	}
-	if where[0] >= rows {
-		where[0] -= rows
-	}
-	if where[1] < 0 {
-		where[1] += cols
-	}
-	if where[1] >= cols {
-		where[1] -= cols
-	}
-	return field[where[0]][where[1]]
+func (field Field) at(w Where) Real {
+	return field[_f(w[0], rows)][_f(w[1], cols)]
 }
 
 func (field Field) randomize() {
-	for r := 0; r < rows; r++ {
-		for c := 0; c < cols; c++ {
+	for r := range field {
+		for c := range field[r] {
 			field[r][c] = randomReal(-1, 1)
 		}
 	}
+}
+
+func _f(x, m int) (y int) {
+	switch {
+	case 0 <= x && x < m:
+		y = x
+	case x > m:
+		y = x - m
+	case x < m:
+		y = x + m
+	}
+	return
 }

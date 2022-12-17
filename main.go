@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"os"
 
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
@@ -11,9 +11,9 @@ var field Field = grid[Real]()
 var hands = randomRectangularHands(randomHands)
 
 func main() {
-	loadHandsFromFile("test.txt")
-	s := stringFromHands(hands)
-	fmt.Printf("%s", s)
+	if len(os.Args) > 1 {
+		loadHandsFromFile(os.Args[1])
+	}
 	field.randomize()
 	rl.InitWindow(int32(cols*pixelWidth), int32(rows*pixelHeight), "ffl0")
 	rl.SetTargetFPS(int32(fps))
