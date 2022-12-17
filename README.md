@@ -6,5 +6,5 @@ You can see some sample output here: https://www.instagram.com/_f_f_l_o_/
 
 Also check here : https://www.youtube.com/channel/UC3nUe65z-QI5IBN8E7vTtqA
 
-Feel free to make suggestions, push improvements, fork, etc.
+
 
