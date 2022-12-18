@@ -25,6 +25,6 @@ func _f(x, m int) (y int) {
 }
 
 func updateFieldWith(hand Hand) {
-	mutField[showFieldIndex] = hand.led(mutField[workFieldIndex])
+	field[showFieldIndex] = hand.led(field[workFieldIndex])
 	showFieldIndex, workFieldIndex = workFieldIndex, showFieldIndex
 }

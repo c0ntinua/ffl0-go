@@ -5,6 +5,14 @@ import (
 	"math/rand"
 )
 
+func handle(hand Hand, read, write Field) {
+	for r := 0; r < rows; r++ {
+		for c := 0; c < cols; c++ {
+			write[r][c] = hand._led(read, Where{r, c})
+		}
+	}
+}
+
 func (hand Hand) led(field Field) Field {
 	var handledField Field = grid[Real]()
 	for r := 0; r < rows; r++ {
@@ -23,10 +31,10 @@ func (hand Hand) _led(field Field, where Where) Real {
 	return Real(math.Tanh(float64(sum)))
 }
 
-func rectangularHand(rowSpan, colSpan int) Hand {
+func rectangularHand(R, C int) Hand {
 	var hand Hand
-	for r := -rowSpan; r <= rowSpan; r++ {
-		for c := -colSpan; c <= colSpan; c++ {
+	for r := -R; r <= R; r++ {
+		for c := -C; c <= C; c++ {
 			if randomReal(0, 1) < Real(integrity) {
 				finger := Finger{Target{r, c}, randomReal(-power, power)}
 				hand = append(hand, finger)

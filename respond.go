@@ -14,7 +14,7 @@ func respondToUser() {
 	case rl.IsKeyReleased(rl.KeyH):
 		hands = randomRectangularHands(randomHands)
 	case rl.IsKeyReleased(rl.KeySpace):
-		field.randomize()
+		field[readIndex].randomize()
 	case rl.IsKeyReleased(rl.KeyRight):
 		adjustSpeed(5)
 	case rl.IsKeyReleased(rl.KeyLeft):
