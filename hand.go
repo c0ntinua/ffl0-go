@@ -27,8 +27,10 @@ func rectangularHand(rowSpan, colSpan int) Hand {
 	var hand Hand
 	for r := -rowSpan; r <= rowSpan; r++ {
 		for c := -colSpan; c <= colSpan; c++ {
-			finger := Finger{Target{r, c}, randomReal(-power, power)}
-			hand = append(hand, finger)
+			if randomReal(0, 1) < Real(integrity) {
+				finger := Finger{Target{r, c}, randomReal(-power, power)}
+				hand = append(hand, finger)
+			}
 		}
 	}
 	return hand

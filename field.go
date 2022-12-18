@@ -23,3 +23,8 @@ func _f(x, m int) (y int) {
 	}
 	return
 }
+
+func updateFieldWith(hand Hand) {
+	mutField[showFieldIndex] = hand.led(mutField[workFieldIndex])
+	showFieldIndex, workFieldIndex = workFieldIndex, showFieldIndex
+}
