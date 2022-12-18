@@ -12,7 +12,7 @@ func respondToUser() {
 	case rl.IsKeyReleased(rl.KeyQ):
 		os.Exit(0)
 	case rl.IsKeyReleased(rl.KeyH):
-		hands = randomRectangularHands(randomHands)
+		hands = rectHands(randomHands)
 	case rl.IsKeyReleased(rl.KeySpace):
 		field[readIndex].randomize()
 	case rl.IsKeyReleased(rl.KeyRight):

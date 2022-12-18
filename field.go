@@ -1,6 +1,6 @@
 package main
 
-func (field Field) at(w Where) Real {
+func (field Field) at(w [2]int) float64 {
 	return field[_f(w[0], rows)][_f(w[1], cols)]
 }
 
@@ -22,9 +22,4 @@ func _f(x, m int) (y int) {
 		y = x + m
 	}
 	return
-}
-
-func updateFieldWith(hand Hand) {
-	field[showFieldIndex] = hand.led(field[workFieldIndex])
-	showFieldIndex, workFieldIndex = workFieldIndex, showFieldIndex
 }

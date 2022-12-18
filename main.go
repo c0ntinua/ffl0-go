@@ -17,9 +17,8 @@ func main() {
 	for !rl.WindowShouldClose() {
 		respondToUser()
 		for _, hand := range hands {
-			field[showFieldIndex] = hand.led(field[workFieldIndex])
-			handle(hand, field[readIndex], field[writeIndex])
-			readIndex, writeIndex = writeIndex, readIndex
+			apply(hand)
+
 		}
 		rl.BeginDrawing()
 		plot(field[readIndex])

@@ -2,6 +2,6 @@ package main
 
 import "math/rand"
 
-func randomReal(a, b Real) Real {
-	return a + (b-a)*Real(rand.Float64())
+func randomReal(a, b float64) float64 {
+	return a + (b-a)*rand.Float64()
 }

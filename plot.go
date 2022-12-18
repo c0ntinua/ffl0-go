@@ -27,7 +27,7 @@ func pixel(field Field, r, c int) {
 
 }
 
-func gray(x Real) Color {
+func gray(x float64) Color {
 	hue := uint8(math.Trunc(128.0 * (float64(x) + 1)))
 	return Color{hue, hue, hue, 255}
 }
