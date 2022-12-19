@@ -41,8 +41,12 @@ func respondToUser() {
 		changeHand(8)
 	case rl.IsKeyReleased(rl.KeyZero):
 		changeHand(9)
+	case rl.IsKeyReleased(rl.KeyX):
+		field[readIndex].randomize()
+		hands = rectHands(randomHands)
+	case rl.IsKeyDown(rl.KeyRightShift) && rl.IsKeyDown(rl.KeyZero):
+		os.Exit(0)
 	}
-
 }
 
 func adjustSpeed(i int) {

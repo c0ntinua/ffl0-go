@@ -1,29 +1,31 @@
 package main
 
 import (
-	"fmt"
 	"io/ioutil"
 	"os"
 	"time"
 )
 
-func check(e error) {
+func panicIf(e error) {
 	if e != nil {
 		panic(e)
 	}
 }
 
-func writeHandsToFile() {
+func fileForWriting() *os.File {
 	f, err := os.Create(time.Now().String() + ".txt")
-	check(err)
+	panicIf(err)
+	return f
+}
+func writeHandsToFile() {
+	f := fileForWriting()
 	defer f.Close()
-	n, err := f.WriteString(stringFromHands(hands))
-	check(err)
-	fmt.Print(n, "bytes written")
+	_, err := f.WriteString(stringFromHands(hands))
+	panicIf(err)
 }
 
 func loadHandsFromFile(filename string) {
 	content, err := ioutil.ReadFile(filename)
-	check(err)
+	panicIf(err)
 	hands = handsFrom(string(content))
 }
